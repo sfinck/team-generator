@@ -17,6 +17,7 @@ The Team Generator applicaiton is designed for the user to build a team of devel
 5. [Path](https://www.npmjs.com/package/path)
 6. [Screencastify](https://www.screencastify.com/)
 7. [Font Awesome](https://fontawesome.com/)
+8. [Bootstrap](https://getbootstrap.com/docs/5.0/getting-started/introduction/)
 
 ## Usage 
 The user will run 'node index.js' and they will be prompted with the following questions: 
