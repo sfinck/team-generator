@@ -1,34 +1,12 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
+const path = require('path');
 const Employee = require('./lib/Employee')
 const Engineer = require('./lib/Engineer')
 const Intern = require('./lib/Intern')
 const Manager = require('./lib/Manager')
-
-//start menu
-function startMenu () {
-    inquirer.prompt([
-        {
-            type: 'input',
-            message: "What is your employee's name?",
-            name: 'employeeName',
-        },
-        {
-            type: 'input',
-            message: "What is your employee's email?",
-            name: 'employeeEmail',
-        },
-        {
-            type: 'input',
-            message: "What is your employee's ID?",
-            name: 'employeeId',
-        },
-    ]).then(results => {
-        const employee = new Employee (results.employeeName, results.employeeId, results.employeeEmail)
-    })
-}
-
-//if else statement 
+let idArray = [];
+let teamArray = [];
 
 //if user choose manager option 
 function managerOption () {
@@ -47,6 +25,12 @@ function managerOption () {
             type: 'input',
             message: "What is your manager's ID?",
             name: 'managerId',
+            validate: function(input){
+                if (idArray.indexOf(input)!==-1){
+                    return 'ID Already exists'
+                }
+                return true
+            }
         },
         {
             type: 'input',
@@ -55,10 +39,11 @@ function managerOption () {
         },
     ]).then(results => {
         const manager = new Manager (results.managerName, results.managerId, results.managerEmail, results.officeNumber)
+        idArray.push(results.managerId)
+        teamArray.push(manager)
+        userChoice();
     })
 }
-
-//if else statement 
 
 //if user chooses engineer option
 function engineerOption () {
@@ -82,12 +67,20 @@ function engineerOption () {
             type: 'input',
             message: "What is your engineers ID?",
             name: 'engineerId',
+            validate: function(input){
+                if (idArray.indexOf(input)!==-1){
+                    return 'ID Already exists'
+                }
+                return true
+            }
         },
     ]).then(results => {
         const engineer = new Engineer (results.engineerName, results.engineerId, results.githubUsername, results.engineerEmail)
+        idArray.push(results.engineerId)
+        teamArray.push(results.engineer)
+        userChoice();
     })
 }
-//if else statment 
 
 //if user chooses intern option
 function internOption () {
@@ -106,6 +99,12 @@ function internOption () {
             type: 'input',
             message: "What is your intern's ID?",
             name: 'internId',
+            validate: function(input){
+                if (idArray.indexOf(input)!==-1){
+                    return 'ID Already exists'
+                }
+                return true
+            }
         },
         {
             type: 'input',
@@ -114,9 +113,44 @@ function internOption () {
         },
     ]).then(results => {
         const intern = new Intern (results.internName, results.internId, results.internEmail, results.schoolName)
+        idArray.push(results.internId)
+        teamArray.push(results.intern)
+        userChoice();
     })
 }
+
 //create function for engineer, intern
-    //.then if else statment - call function to ask intern questions or engineer questions
-//create a function to go back to menu 
-//create a function to add member
+//.then if else statment - call function to ask intern questions or engineer questions
+function userChoice () {
+    inquirer.prompt([
+        {  
+        type: 'list',
+        message: "Which type of team member would you like to add?",
+        name: 'userChoice',
+        choices: ['Engineer', 'Intern', 'All done!'],
+        }
+    ]).then(results => {
+        if (results.userChoice === 'Engineer'){
+            engineerOption();
+        }
+        else if (results.userChoice === 'Intern'){
+            internOption();
+        }
+        else {
+            console.log("done");
+        }
+    })
+}
+
+function teamHTML() {
+    if (!fs.existsSync(path.resolve(__dirname,'output'))){
+        fs.mkdirSync(path.resolve(__dirname,'output'))
+    }
+    
+//write code that makes file 
+//how to render onto html
+}
+
+managerOption();
+
+
