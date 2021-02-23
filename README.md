@@ -31,14 +31,17 @@ If the user tries to enter a previous ID then "ID already exists" message will a
 Once the user is completed with their team, the application will end and the index.html will open and display their team: 
 ![alt text](./assets/all-done.png)
 
-### User Story
+## User Story
 
+```md
 AS A manager
 I WANT to generate a webpage that displays my team's basic info
 SO THAT I have quick access to their emails and GitHub profiles
+```
 
-### Acceptance Criteria
+## Acceptance Criteria
 
+```md
 GIVEN a command-line application that accepts user input
 WHEN I am prompted for my team members and their information
 THEN an HTML file is generated that displays a nicely formatted team roster based on user input
@@ -56,6 +59,7 @@ WHEN I select the intern option
 THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
 WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
+```
 
 ## License 
 [MIT](https://opensource.org/licenses/MIT)
