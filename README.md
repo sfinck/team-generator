@@ -20,31 +20,25 @@ The Team Generator applicaiton is designed for the user to build a team of devel
 
 ## Usage 
 The user will run 'node index.js' and they will be prompted with the following questions: 
-```md
 ![alt text](./assets/start-menu.png)
-```
+
 Next, the user will choose which team member they want to add:
-```md
 ![alt text](./assets/user-option.png)
-```
+
 If the user tries to enter a previous ID then "ID already exists" message will appear:
-```md
 ![alt text](./assets/id-already-exists.png)
-```
+
 Once the user is completed with their team, the application will end and the index.html will open and display their team: 
-```md
 ![alt text](./assets/all-done.png)
-```
 
 ### User Story
-```md
+
 AS A manager
 I WANT to generate a webpage that displays my team's basic info
 SO THAT I have quick access to their emails and GitHub profiles
-```
 
 ### Acceptance Criteria
-```md
+
 GIVEN a command-line application that accepts user input
 WHEN I am prompted for my team members and their information
 THEN an HTML file is generated that displays a nicely formatted team roster based on user input
@@ -62,6 +56,6 @@ WHEN I select the intern option
 THEN I am prompted to enter the intern’s name, ID, email, and school, and I am taken back to the menu
 WHEN I decide to finish building my team
 THEN I exit the application, and the HTML is generated
-```
+
 ## License 
 [MIT](https://opensource.org/licenses/MIT)
