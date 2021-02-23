@@ -21,19 +21,19 @@ The Team Generator applicaiton is designed for the user to build a team of devel
 ## Usage 
 The user will run 'node index.js' and they will be prompted with the following questions: 
 ```md
-![alt text](assets/start-menu.png)
+![alt text](./assets/start-menu.png)
 ```
 Next, the user will choose which team member they want to add:
 ```md
-![alt text](assets/user-option.png)
+![alt text](./assets/user-option.png)
 ```
 If the user tries to enter a previous ID then "ID already exists" message will appear:
 ```md
-![alt text](assets/id-already-exists.png)
+![alt text](./assets/id-already-exists.png)
 ```
 Once the user is completed with their team, the application will end and the index.html will open and display their team: 
 ```md
-![alt text](assets/all-done.png)
+![alt text](./assets/all-done.png)
 ```
 
 ### User Story
